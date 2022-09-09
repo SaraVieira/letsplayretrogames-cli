@@ -14,10 +14,10 @@ pub fn find_matches(pattern: &str, text: &str, mut writer: impl Write) -> Result
 
     if results.len() > 0 {
         for result in results {
-            writeln!(writer, "{}", result);
+            writeln!(writer, "{}", result)?;
         }
     } else {
-        writeln!(writer, "{}", ERROR_NO_RESULTS);
+        writeln!(writer, "{}", ERROR_NO_RESULTS)?;
     }
 
     Ok(())
