@@ -1,24 +1,22 @@
-use std::fmt::format;
-
-use anyhow::{anyhow, Context, Result};
+use anyhow::Result;
 use clap::Parser;
 use comfy_table::Table;
 use serde::{Deserialize, Serialize};
 
-enum CONSOLES {
-    Nes,
-    Snes,
-    Gb,
-    Gbc,
-    Gba,
-    N64,
-    Md,
-    Gg,
-    Ms,
-    Pce,
-}
+// enum CONSOLES {
+//     Nes,
+//     Snes,
+//     Gb,
+//     Gbc,
+//     Gba,
+//     N64,
+//     Md,
+//     Gg,
+//     Ms,
+//     Pce,
+// }
 #[derive(Debug, Deserialize, Serialize)]
-struct Data {
+struct Game {
     id: i32,
     igdb_id: i32,
     first_release_date: i32,
@@ -36,7 +34,6 @@ struct SearchParams {
 #[derive(Parser)]
 struct RandomParams {
     console: String,
-    query: String,
 }
 
 #[derive(clap::Subcommand)]
@@ -58,7 +55,7 @@ async fn get_searched_game(query: &str) -> Result<(), anyhow::Error> {
         "https://letsplayretro.games/api/search?query=".to_owned() + &query.to_owned(),
     )
     .await?
-    .json::<Vec<Data>>()
+    .json::<Vec<Game>>()
     .await?;
 
     for game in result {
@@ -77,13 +74,26 @@ async fn get_searched_game(query: &str) -> Result<(), anyhow::Error> {
     Ok(())
 }
 
+#[tokio::main]
+async fn get_random_game(console: &str) -> Result<(), anyhow::Error> {
+    let url =
+        "https://letsplayretro.games/api/".to_owned() + &console.to_owned() + &"/random".to_owned();
+    let game = reqwest::get(url).await?.json::<Game>().await?;
+    let url = "https://letsplayretro.games/".to_owned()
+        + &game.console.to_owned()
+        + "/"
+        + &game.slug.to_owned();
+    println!("{:#?}", game.name);
+    println!("{:#?}", url);
+    Ok(())
+}
+
 fn main() {
     let args = Cli::parse();
-
     match args.command {
         Command::Search(command) => get_searched_game(&command.query),
+        Command::Random(command) => get_random_game(&command.console),
     };
 }
 
-// - letsplay search mario
 // - letsplay random nes
