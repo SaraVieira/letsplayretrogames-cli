@@ -1,6 +1,6 @@
 use assert_cmd::prelude::*;
+use letsplayretrogames::{ERROR_NO_RESULTS, ERROR_PATTERN_EMPTY};
 use predicates::prelude::*; // Used for writing assertions
-use sara_001::{ERROR_NO_RESULTS, ERROR_PATTERN_EMPTY};
 use std::process::Command; // Run programs // Add methods on commands
 
 use assert_fs::{prelude::*, NamedTempFile};

@@ -1,4 +1,4 @@
-# sara-rust-001
+# letsplayretrogames cli
 
 Finds things in a file
 
@@ -6,5 +6,5 @@ Running
 
 ```
 cargo build
-./target/debug/sara_001 <PATTERN> <FILE_PATH>
+./target/debug/letsplayretrogames search <QUERY>
 ```
