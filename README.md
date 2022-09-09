@@ -5,5 +5,6 @@ Finds things in a file
 Running
 
 ```
-cargo run -- <PATTERN> <FILE_PATH>
+cargo build
+./target/debug/sara_001 <PATTERN> <FILE_PATH>
 ```
