@@ -55,7 +55,7 @@ fn create_table() -> Table {
 
 fn get_rating(total_rating: Option<f32>) -> String {
     match total_rating {
-        Some(i) => format!("{:.2}", i.to_string()),
+        Some(i) => format!("{:.2}", i),
         _ => "Unknown".to_string(),
     }
 }
@@ -64,7 +64,7 @@ fn get_rating(total_rating: Option<f32>) -> String {
 
 fn rating_exists() {
     let result = get_rating(Option::Some(78.998));
-    assert_eq!(result, 78.to_string())
+    assert_eq!(result, "79.00")
 }
 
 #[test]
