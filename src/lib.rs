@@ -1,3 +1,5 @@
+use std::fmt;
+
 use comfy_table::Table;
 use serde::{Deserialize, Serialize};
 
@@ -10,12 +12,86 @@ pub struct Game {
     name: String,
     slug: String,
     console: String,
+    console_id: String,
+}
+
+#[derive(clap::ArgEnum, Clone)]
+pub enum Consoles {
+    Nes,
+    Snes,
+    Gb,
+    Gbc,
+    Gba,
+    N64,
+    Md,
+    Gg,
+    Ms,
+    Pce,
+}
+
+impl fmt::Display for Consoles {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match self {
+            Consoles::Nes => write!(f, "nes"),
+            Consoles::Snes => write!(f, "snes"),
+            Consoles::Gb => write!(f, "gb"),
+            Consoles::Gbc => write!(f, "gbc"),
+            Consoles::Gba => write!(f, "gba"),
+            Consoles::N64 => write!(f, "n64"),
+            Consoles::Md => write!(f, "md"),
+            Consoles::Gg => write!(f, "gg"),
+            Consoles::Ms => write!(f, "ms"),
+            Consoles::Pce => write!(f, "pce"),
+        }
+    }
+}
+
+fn create_table() -> Table {
+    let mut table = Table::new();
+    table.set_header(vec!["Name", "Console", "Rating", "Link"]);
+    return table;
+}
+
+fn get_rating(total_rating: Option<f32>) -> String {
+    let rating = match total_rating {
+        Some(i) => format!("{:.2}", i.to_string()),
+        _ => "Unknown".to_string(),
+    };
+
+    return rating;
+}
+
+#[test]
+
+fn rating_exists() {
+    let result = get_rating(Option::Some(78.998));
+    assert_eq!(result, 78.to_string())
+}
+
+#[test]
+
+fn rating_not_exists() {
+    let result = get_rating(Option::None);
+    assert_eq!(result, "Unknown".to_string())
+}
+
+fn get_game_url(console_id: String, slug: String) -> String {
+    return DOMAIN.to_owned() + &console_id.to_owned() + "/" + &slug.to_owned();
+}
+
+#[test]
+
+fn game_url() {
+    let result = get_game_url("nes".to_string(), "one-two".to_string());
+    assert_eq!(
+        result,
+        "https://letsplayretro.games/nes/one-two".to_string()
+    )
 }
 
 #[tokio::main]
 pub async fn get_searched_game(query: &str) -> Result<(), anyhow::Error> {
-    let mut table = Table::new();
-    table.set_header(vec!["Name", "Console", "Rating", "Link"]);
+    let mut table = create_table();
     let result = reqwest::get(
         "https://letsplayretro.games/api/search?query=".to_owned() + &query.to_owned(),
     )
@@ -24,31 +100,36 @@ pub async fn get_searched_game(query: &str) -> Result<(), anyhow::Error> {
     .await?;
 
     for game in result {
-        let url = "https://letsplayretro.games/".to_owned()
-            + &game.console.to_owned()
-            + "/"
-            + &game.slug.to_owned();
-
-        let rating = match game.total_rating {
-            Some(i) => format!("{:.2}", i.to_string()),
-            _ => "Unknown".to_string(),
-        };
-        table.add_row(vec![&game.name, &game.console, &rating.to_string(), &url]);
+        table.add_row(vec![
+            &game.name,
+            &game.console.to_owned(),
+            &get_rating(game.total_rating),
+            &get_game_url(game.console_id, game.slug),
+        ]);
     }
     println!("{table}");
     Ok(())
 }
 
+const DOMAIN: &str = "https://letsplayretro.games/";
+
 #[tokio::main]
-pub async fn get_random_game(console: &str) -> Result<(), anyhow::Error> {
-    let url =
-        "https://letsplayretro.games/api/".to_owned() + &console.to_owned() + &"/random".to_owned();
+pub async fn get_random_game(console: &Option<Consoles>) -> Result<(), anyhow::Error> {
+    let mut table = create_table();
+    let url = match console {
+        Some(i) => DOMAIN.to_owned() + &"api/".to_owned() + &i.to_string() + &"/random".to_owned(),
+        _ => DOMAIN.to_owned() + &"api/".to_owned() + &"/random".to_owned(),
+    };
+
     let game = reqwest::get(url).await?.json::<Game>().await?;
-    let url = "https://letsplayretro.games/".to_owned()
-        + &game.console.to_owned()
-        + "/"
-        + &game.slug.to_owned();
-    println!("{:#?}", game.name);
-    println!("{:#?}", url);
+
+    table.add_row(vec![
+        &game.name,
+        &game.console.to_owned(),
+        &get_rating(game.total_rating),
+        &get_game_url(game.console_id, game.slug),
+    ]);
+    println!("{table}");
+
     Ok(())
 }

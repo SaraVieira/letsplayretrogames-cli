@@ -1,19 +1,6 @@
 use clap::Parser;
 
-use letsplayretrogames::{get_random_game, get_searched_game};
-
-// enum CONSOLES {
-//     Nes,
-//     Snes,
-//     Gb,
-//     Gbc,
-//     Gba,
-//     N64,
-//     Md,
-//     Gg,
-//     Ms,
-//     Pce,
-// }
+use letsplayretrogames::{get_random_game, get_searched_game, Consoles};
 
 #[derive(Parser)]
 struct SearchParams {
@@ -22,12 +9,15 @@ struct SearchParams {
 
 #[derive(Parser)]
 struct RandomParams {
-    console: String,
+    #[clap(arg_enum)]
+    console: Option<Consoles>,
 }
 
 #[derive(clap::Subcommand)]
 enum Command {
+    /// Search for a game passing a query
     Search(SearchParams),
+    /// Get a random game, pass a console for games in that console or leave empty and be surprised
     Random(RandomParams),
 }
 #[derive(Parser)]
@@ -36,12 +26,10 @@ struct Cli {
     command: Command,
 }
 
-fn main() {
+fn main() -> () {
     let args = Cli::parse();
     match args.command {
         Command::Search(command) => get_searched_game(&command.query),
         Command::Random(command) => get_random_game(&command.console),
     };
 }
-
-// - letsplay random nes
