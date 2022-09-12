@@ -1,6 +1,9 @@
+pub mod api;
+pub mod utils;
+
 use clap::Parser;
 
-use letsplayretrogames::{get_random_game, get_searched_games, Consoles};
+use api::{get_random_game, get_searched_games, Consoles};
 
 #[derive(Parser)]
 struct SearchParams {
@@ -26,10 +29,10 @@ struct Cli {
     command: Command,
 }
 
-fn main() {
+fn main() -> Result<(), anyhow::Error> {
     let args = Cli::parse();
     match args.command {
         Command::Search(command) => get_searched_games(&command.query),
         Command::Random(command) => get_random_game(&command.console),
-    };
+    }
 }

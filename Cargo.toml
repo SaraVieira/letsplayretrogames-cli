@@ -24,4 +24,3 @@ comfy-table = "6.1.0"
 [dev-dependencies]
 assert_cmd = "2.0"
 predicates = "2.1"
-assert_fs = "1.0"
