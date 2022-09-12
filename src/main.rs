@@ -26,7 +26,7 @@ struct Cli {
     command: Command,
 }
 
-fn main() -> () {
+fn main() {
     let args = Cli::parse();
     match args.command {
         Command::Search(command) => get_searched_games(&command.query),

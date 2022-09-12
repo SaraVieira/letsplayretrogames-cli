@@ -50,16 +50,14 @@ impl fmt::Display for Consoles {
 fn create_table() -> Table {
     let mut table = Table::new();
     table.set_header(vec!["Name", "Console", "Rating", "Link"]);
-    return table;
+    table
 }
 
 fn get_rating(total_rating: Option<f32>) -> String {
-    let rating = match total_rating {
+    match total_rating {
         Some(i) => format!("{:.2}", i.to_string()),
         _ => "Unknown".to_string(),
-    };
-
-    return rating;
+    }
 }
 
 #[test]
@@ -77,7 +75,7 @@ fn rating_not_exists() {
 }
 
 fn get_game_url(console_id: String, slug: String) -> String {
-    return DOMAIN.to_owned() + &console_id.to_owned() + "/" + &slug.to_owned();
+    DOMAIN.to_owned() + &console_id + "/" + &slug
 }
 
 #[test]
@@ -94,12 +92,10 @@ fn game_url() {
 pub async fn get_searched_games(query: &str) -> Result<(), anyhow::Error> {
     let mut table = create_table();
     let mut sp = Spinner::new(Spinners::Dots9, "Fetching your games".into());
-    let result = reqwest::get(
-        "https://letsplayretro.games/api/search?query=".to_owned() + &query.to_owned(),
-    )
-    .await?
-    .json::<Vec<Game>>()
-    .await?;
+    let result = reqwest::get("https://letsplayretro.games/api/search?query=".to_owned() + query)
+        .await?
+        .json::<Vec<Game>>()
+        .await?;
 
     for game in result {
         table.add_row(vec![
@@ -121,8 +117,8 @@ pub async fn get_random_game(console: &Option<Consoles>) -> Result<(), anyhow::E
     let mut table = create_table();
     let mut sp = Spinner::new(Spinners::Dots9, "Choosing a random game for you".into());
     let url = match console {
-        Some(i) => DOMAIN.to_owned() + &"api/".to_owned() + &i.to_string() + &"/random".to_owned(),
-        _ => DOMAIN.to_owned() + &"api/".to_owned() + &"/random".to_owned(),
+        Some(i) => DOMAIN.to_owned() + "api/" + &i.to_string() + "/random",
+        _ => DOMAIN.to_owned() + "api/" + "/random",
     };
 
     let game = reqwest::get(url).await?.json::<Game>().await?;
