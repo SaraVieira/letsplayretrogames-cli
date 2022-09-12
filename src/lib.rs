@@ -2,6 +2,7 @@ use std::fmt;
 
 use comfy_table::Table;
 use serde::{Deserialize, Serialize};
+use spinners::{Spinner, Spinners};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Game {
@@ -90,8 +91,9 @@ fn game_url() {
 }
 
 #[tokio::main]
-pub async fn get_searched_game(query: &str) -> Result<(), anyhow::Error> {
+pub async fn get_searched_games(query: &str) -> Result<(), anyhow::Error> {
     let mut table = create_table();
+    let mut sp = Spinner::new(Spinners::Dots9, "Fetching your games".into());
     let result = reqwest::get(
         "https://letsplayretro.games/api/search?query=".to_owned() + &query.to_owned(),
     )
@@ -107,6 +109,7 @@ pub async fn get_searched_game(query: &str) -> Result<(), anyhow::Error> {
             &get_game_url(game.console_id, game.slug),
         ]);
     }
+    sp.stop_and_persist("✔", "Found them!".into());
     println!("{table}");
     Ok(())
 }
@@ -116,6 +119,7 @@ const DOMAIN: &str = "https://letsplayretro.games/";
 #[tokio::main]
 pub async fn get_random_game(console: &Option<Consoles>) -> Result<(), anyhow::Error> {
     let mut table = create_table();
+    let mut sp = Spinner::new(Spinners::Dots9, "Choosing a random game for you".into());
     let url = match console {
         Some(i) => DOMAIN.to_owned() + &"api/".to_owned() + &i.to_string() + &"/random".to_owned(),
         _ => DOMAIN.to_owned() + &"api/".to_owned() + &"/random".to_owned(),
@@ -129,6 +133,7 @@ pub async fn get_random_game(console: &Option<Consoles>) -> Result<(), anyhow::E
         &get_rating(game.total_rating),
         &get_game_url(game.console_id, game.slug),
     ]);
+    sp.stop_and_persist("✔", "Found it!".into());
     println!("{table}");
 
     Ok(())
