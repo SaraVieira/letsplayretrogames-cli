@@ -2,8 +2,14 @@
 name = "letsplayretrogames"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "A CLI for the letsplayretro.games website"
+repository = "https://github.com/SaraVieira/letsplayretrogames-cli"
+readme = "README.md"
+keywords = ["letsplayretrogames"]
+categories = ["command-line-utilities"]
+license = "MIT"
+homepage = "https://github.com/SaraVieira/letsplayretrogames-cli"
+authors = ["Sara Vieira"]
 
 [dependencies]
 clap = { version = "3.0", features = ["derive"] }
