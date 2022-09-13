@@ -1,6 +1,6 @@
 [package]
 name = "letsplayretrogames"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 description = "A CLI for the letsplayretro.games website"
 repository = "https://github.com/SaraVieira/letsplayretrogames-cli"

@@ -2,11 +2,13 @@
 
 A CLI for the website https://letsplayretro.games
 
-## Running
+## Installing
 
-```
-cargo build
-./target/debug/letsplayretrogames <SUBCOMMAND>
+```sh
+# cargo
+cargo install letsplayretrogames
+# NPM
+npm i -g letsplayretrogames
 ```
 
 ## Usage
@@ -25,3 +27,7 @@ SUBCOMMANDS:
     random    Get a random game, pass a console for games in that console or leave empty and be surprised
     search    Search for a game passing a query
 ```
+
+## License
+
+MIT
