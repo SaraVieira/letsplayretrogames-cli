@@ -1,0 +1,30 @@
+{
+  "name": "letsplayretrogames",
+  "version": "0.2.7",
+  "description": "A CLI for the letsplayretro.games website",
+  "main": "index.js",
+  "bin": {
+    "letsplayretrogames": "run.js"
+  },
+  "scripts": {
+    "postinstall": "node ./install.js"
+  },
+  "repository": "https://github.com/SaraVieira/letsplayretrogames-cli",
+  "author": "Sara Vieira <hey@iamsaravieira.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SaraVieira/letsplayretrogames-cli/issues"
+  },
+  "engines": {
+    "node": ">=14",
+    "npm": ">=6"
+  },
+  "volta": {
+    "node": "17.5.0",
+    "npm": "8.15.0"
+  },
+  "homepage": "https://github.com/SaraVieira/letsplayretrogames-cli#readme",
+  "dependencies": {
+    "binary-install": "^1.0.1"
+  }
+}
