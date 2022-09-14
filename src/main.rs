@@ -29,10 +29,11 @@ struct Cli {
     command: Command,
 }
 
-fn main() -> Result<(), anyhow::Error> {
+#[tokio::main]
+async fn main() -> Result<(), anyhow::Error> {
     let args = Cli::parse();
     match args.command {
-        Command::Search(command) => get_searched_games(&command.query),
-        Command::Random(command) => get_random_game(&command.console),
+        Command::Search(command) => get_searched_games(&command.query).await,
+        Command::Random(command) => get_random_game(&command.console).await,
     }
 }

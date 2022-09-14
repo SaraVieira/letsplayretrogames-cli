@@ -37,7 +37,6 @@ fn create_table() -> Table {
     table
 }
 
-#[tokio::main]
 pub async fn get_searched_games(query: &str) -> Result<(), anyhow::Error> {
     let mut table = create_table();
     let mut sp = Spinner::new(Spinners::Dots9, FETCHING_GAMES.to_string());
@@ -59,7 +58,6 @@ pub async fn get_searched_games(query: &str) -> Result<(), anyhow::Error> {
     Ok(())
 }
 
-#[tokio::main]
 pub async fn get_random_game(console: &Option<Consoles>) -> Result<(), anyhow::Error> {
     let mut table = create_table();
     let mut sp = Spinner::new(Spinners::Dots9, CHOOSING_RANDOM.to_string());
