@@ -1,0 +1,22 @@
+{
+  "theme": "dark",
+  "name": "Let's Play Retro Games CLI",
+  "logo": "./media/logo.png",
+  "downloads": {
+    "npm": {
+      "text": "npm i -g letsplayretrogames"
+    },
+    "cargo": {
+      "text": "cargo install letsplayretrogames"
+    },
+    "linux": {
+      "link": "https://github.com/SaraVieira/letsplayretrogames-cli/releases/download/v0.2.8/letsplayretrogames-v0.2.8-x86_64-unknown-linux-musl.tar.gz"
+    },
+    "windows": {
+      "link": "https://github.com/SaraVieira/letsplayretrogames-cli/releases/download/v0.2.8/letsplayretrogames-v0.2.8-x86_64-pc-windows-msvc.tar.gz"
+    },
+    "mac": {
+      "link": "https://github.com/SaraVieira/letsplayretrogames-cli/releases/download/v0.2.8/letsplayretrogames-v0.2.8-x86_64-apple-darwin.tar.gz"
+    }
+  }
+}

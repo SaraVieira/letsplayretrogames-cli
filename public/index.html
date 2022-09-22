@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<title>Let's Play Retro Games CLI</title>
+<meta charset="utf-8">
+
+
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  
+  <meta property="og:type" content="website">
+  
+      <meta itemprop="name" content="Let's Play Retro Games CLI">
+      <meta property="og:title" content="Let's Play Retro Games CLI">
+      <meta property="og:site_name" content="Let's Play Retro Games CLI">
+      
+  
+      <meta name="description" content="A CLI for the letsplayretro.games website">
+      <meta itemprop="description" content="A CLI for the letsplayretro.games website">
+      <meta property="og:description" content="A CLI for the letsplayretro.games website">
+      
+  <meta property="og:url" content="https://github.com/SaraVieira/letsplayretrogames-cli">
+  
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="dark">
+  
+  
+  
+
+<link rel="stylesheet" href="style.css">
+
+
+</head>
+<body>
+<div id="oranda"><div class="body dark"><div class="container"><a href="https://github.com/SaraVieira/letsplayretrogames-cli" class="github-corner" aria-label="View source on GitHub">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        
+<path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+<path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+<path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+
+      </svg>
+    </a><header><h1>Let's Play Retro Games CLI</h1><img class="logo" src="./media/logo.png" alt="Let's Play Retro Games CLI logo" />
+      
+      </header>
+    <h2 class="text-center">Download for your platform</h2>
+    <div class="tabs">
+      <input type="radio" name="tabs" id="npm">
+            <label for="npm">npm</label>
+            <div class="tab"><pre class="shiki" style="background-color: #1e1e1e"><code><span class="line"><span style="color: #BBBBBB">npm i -g letsplayretrogames</span></span></code></pre></div><input type="radio" name="tabs" id="cargo">
+            <label for="cargo">cargo</label>
+            <div class="tab"><pre class="shiki" style="background-color: #1e1e1e"><code><span class="line"><span style="color: #BBBBBB">ncargo install</span></span></code></pre></div><input type="radio" name="tabs" id="linux">
+            <label for="linux">linux</label>
+            <div class="tab">
+            v0.2.8
+             - <a href="https://github.com/SaraVieira/letsplayretrogames-cli/releases/download/v0.2.8/letsplayretrogames-v0.2.8-x86_64-unknown-linux-musl.tar.gz">Download for linux</a>
+                  
+            </div><input type="radio" name="tabs" id="windows">
+            <label for="windows">windows</label>
+            <div class="tab">
+            v0.2.8
+             - <a href="https://github.com/SaraVieira/letsplayretrogames-cli/releases/download/v0.2.8/letsplayretrogames-v0.2.8-x86_64-pc-windows-msvc.tar.gz">Download for windows</a>
+                  
+            </div><input type="radio" name="tabs" id="mac">
+            <label for="mac">mac</label>
+            <div class="tab">
+            v0.2.8
+             - <a href="https://github.com/SaraVieira/letsplayretrogames-cli/releases/download/v0.2.8/letsplayretrogames-v0.2.8-x86_64-apple-darwin.tar.gz">Download for mac</a>
+                  
+            </div>
+    </div><h1 id="let's-play-retro-games-cli" tabindex="-1"><a id="user-content-lets-play-retro-games-cli" class="anchor" href="#lets-play-retro-games-cli" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Let's play retro games CLI</h1>
+<p>A CLI for the website <a href="https://letsplayretro.games" target="_blank">https://letsplayretro.games</a></p>
+<h2 id="installing" tabindex="-1"><a id="user-content-installing" class="anchor" href="#installing" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installing</h2>
+<pre><code class="language-sh"><div class="shiki-container"><pre class="shiki shiki-dark" style="background-color: #1b1e28"><code><span class="line"><span style="color: #767C9DB0; font-style: italic"># cargo</span></span>
+<span class="line"><span style="color: #A6ACCD">cargo install letsplayretrogames</span></span>
+<span class="line"><span style="color: #767C9DB0; font-style: italic"># NPM</span></span>
+<span class="line"><span style="color: #A6ACCD">npm i -g letsplayretrogames</span></span>
+<span class="line"></span></code></pre><pre class="shiki shiki-light" style="background-color: #ffffff"><code><span class="line"><span style="color: #6E7781"># cargo</span></span>
+<span class="line"><span style="color: #24292F">cargo install letsplayretrogames</span></span>
+<span class="line"><span style="color: #6E7781"># NPM</span></span>
+<span class="line"><span style="color: #24292F">npm i -g letsplayretrogames</span></span>
+<span class="line"></span></code></pre></div></code></pre>
+<h2 id="usage" tabindex="-1"><a id="user-content-usage" class="anchor" href="#usage" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
+<pre><code class="language-sh"><div class="shiki-container"><pre class="shiki shiki-dark" style="background-color: #1b1e28"><code><span class="line"><span style="color: #A6ACCD">letsplayretrogames</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">USAGE:</span></span>
+<span class="line"><span style="color: #A6ACCD">    letsplayretrogames </span><span style="color: #91B4D5">&lt;</span><span style="color: #A6ACCD">SUBCOMMAND</span><span style="color: #91B4D5">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">OPTIONS:</span></span>
+<span class="line"><span style="color: #A6ACCD">    -h, --help    Print help information</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #A6ACCD">SUBCOMMANDS:</span></span>
+<span class="line"><span style="color: #A6ACCD">    help      Print this message or the help of the given subcommand(s)</span></span>
+<span class="line"><span style="color: #A6ACCD">    random    Get a random game, pass a console for </span><span style="color: #E4F0FB">games</span><span style="color: #A6ACCD"> in that console or leave empty and be surprised</span></span>
+<span class="line"><span style="color: #A6ACCD">    search    Search for a game passing a query</span></span>
+<span class="line"></span></code></pre><pre class="shiki shiki-light" style="background-color: #ffffff"><code><span class="line"><span style="color: #24292F">letsplayretrogames</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #24292F">USAGE:</span></span>
+<span class="line"><span style="color: #24292F">    letsplayretrogames </span><span style="color: #CF222E">&lt;</span><span style="color: #24292F">SUBCOMMAND</span><span style="color: #CF222E">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #24292F">OPTIONS:</span></span>
+<span class="line"><span style="color: #24292F">    -h, --help    Print </span><span style="color: #0550AE">help</span><span style="color: #24292F"> information</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #24292F">SUBCOMMANDS:</span></span>
+<span class="line"><span style="color: #24292F">    </span><span style="color: #0550AE">help</span><span style="color: #24292F">      Print this message or the </span><span style="color: #0550AE">help</span><span style="color: #24292F"> of the given subcommand(s)</span></span>
+<span class="line"><span style="color: #24292F">    random    Get a random game, pass a console </span><span style="color: #CF222E">for</span><span style="color: #24292F"> games </span><span style="color: #CF222E">in</span><span style="color: #24292F"> that console or leave empty and be surprised</span></span>
+<span class="line"><span style="color: #24292F">    search    Search </span><span style="color: #CF222E">for</span><span style="color: #24292F"> a game passing a query</span></span>
+<span class="line"></span></code></pre></div></code></pre>
+<h2 id="license" tabindex="-1"><a id="user-content-license" class="anchor" href="#license" aria-hidden="true"><svg aria-hidden="true" class="octicon octicon-link" height="16" version="1.1" viewbox="0 0 16 16" width="16"><path d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h2>
+<p>MIT</p>
+</div></div><script>(() => {
+  const navigator = window.navigator.userAgent
+  let OSName = 'Unknown'
+  if (navigator.includes('Windows')) OSName = 'Windows'
+  if (navigator.includes('Mac')) OSName = 'Mac'
+  if (navigator.includes('Linux') || navigator.includes("X11")) OSName = 'Linux'
+
+  window.os = OSName
+
+  document.getElementById(OSName.toLocaleLowerCase()).checked = "checked"
+})()</script></div>
+
+</body>
+</html>

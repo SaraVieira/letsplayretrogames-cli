@@ -1,5 +1,3 @@
-# Let's play retro games CLI
-
 A CLI for the website https://letsplayretro.games
 
 ## Installing
