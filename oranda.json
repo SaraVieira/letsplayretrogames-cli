@@ -1,0 +1,25 @@
+{
+  "project": {
+    "name": "letsplayretrogames-cli",
+    "repository": "https://github.com/SaraVieira/letsplayretrogames-cli",
+    "homepage": "https://cli.letsplayretro.games/",
+    "readme_path": "./README.md"
+  },
+  "build": {
+    "dist_dir": "./public/",
+    "static_dir": "./static/",
+    "path_prefix": "letsplayretrogames-cli"
+  },
+  "styles": {
+    "theme": "dark"
+  },
+  "components": {
+    "md_book": {
+      "theme": true
+    },
+    "changelog": false,
+    "funding": {
+      "yml_path": ".github/FUNDING.yml"
+    }
+  }
+}
