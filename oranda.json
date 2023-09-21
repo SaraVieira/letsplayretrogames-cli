@@ -14,12 +14,14 @@
     "theme": "dark"
   },
   "components": {
-    "md_book": {
-      "theme": true
+    "artifacts": {
+      "package_managers": {
+        "preferred": {
+          "npm": "npm i -g letsplayretrogames",
+          "crates.io": "cargo install letsplayretrogames",
+        },
+      }
     },
     "changelog": false,
-    "funding": {
-      "yml_path": ".github/FUNDING.yml"
-    }
   }
 }
