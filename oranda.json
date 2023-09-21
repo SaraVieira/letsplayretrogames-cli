@@ -18,10 +18,10 @@
       "package_managers": {
         "preferred": {
           "npm": "npm i -g letsplayretrogames",
-          "crates.io": "cargo install letsplayretrogames",
-        },
+          "crates.io": "cargo install letsplayretrogames"
+        }
       }
     },
-    "changelog": false,
+    "changelog": false
   }
 }
