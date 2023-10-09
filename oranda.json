@@ -1,8 +1,7 @@
 {
   "project": {
-    "name": "letsplayretrogames-cli",
-    "repository": "https://github.com/SaraVieira/letsplayretrogames-cli",
-    "homepage": "https://cli.letsplayretro.games/",
+    "name": "sunfish-test-12",
+    "repository": "https://github.com/SaraVieira/sunfish-test-12",
     "readme_path": "./README.md"
   },
   "build": {
@@ -14,14 +13,15 @@
     "theme": "dark"
   },
   "components": {
-    "artifacts": {
-      "package_managers": {
-        "preferred": {
-          "npm": "npm i -g letsplayretrogames",
-          "crates.io": "cargo install letsplayretrogames"
-        }
-      }
+    "md_book": {
+      "theme": true
     },
-    "changelog": false
-  }
+    "changelog": false,
+    "funding": {
+      "yml_path": ".github/FUNDING.yml"
+    }
+  },
+  "name": "sunfish-test-12",
+  "repository": "https://github.com/SaraVieira/sunfish-test-12",
+  "changelog": false
 }
