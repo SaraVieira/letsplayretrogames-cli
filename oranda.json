@@ -10,9 +10,6 @@
     "funding": {
       "yml_path": ".github/FUNDING.yml"
     },
-    "md_book": {
-      "theme": true
-    }
   },
   "build": {
     "dist_dir": "./public/",
