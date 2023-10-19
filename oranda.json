@@ -1,27 +1,28 @@
 {
-  "project": {
-    "name": "sunfish-test-12",
-    "repository": "https://github.com/SaraVieira/sunfish-test-12",
-    "readme_path": "./README.md"
+  "styles": {
+    "theme": "dark"
+  },
+  "components": {
+    "mdbook": {
+      "theme": true
+    },
+    "changelog": false,
+    "funding": {
+      "yml_path": ".github/FUNDING.yml"
+    },
+    "md_book": {
+      "theme": true
+    }
   },
   "build": {
     "dist_dir": "./public/",
     "static_dir": "./static/",
     "path_prefix": "letsplayretrogames-cli"
   },
-  "styles": {
-    "theme": "dark"
-  },
-  "components": {
-    "md_book": {
-      "theme": true
-    },
-    "changelog": false,
-    "funding": {
-      "yml_path": ".github/FUNDING.yml"
-    }
-  },
-  "name": "sunfish-test-12",
-  "repository": "https://github.com/SaraVieira/sunfish-test-12",
-  "changelog": false
+  "project": {
+    "name": "sunfish-test-12",
+    "repository": "https://github.com/SaraVieira/sunfish-test-12",
+    "homepage": "https://cli.letsplayretro.games/",
+    "readme_path": "./README.md"
+  }
 }
