@@ -9,7 +9,7 @@
     "changelog": false,
     "funding": {
       "yml_path": ".github/FUNDING.yml"
-    },
+    }
   },
   "build": {
     "dist_dir": "./public/",
